@@ -1,0 +1,16 @@
+pipeline{
+agent any
+tools{
+terraform "terraform-11"
+}
+stages('git checkout'){
+stage{
+	git credentials:
+}
+}
+stage('terraform init'){
+steps{
+sh label '', script 'terraform init'
+}
+}
+}
